@@ -1,0 +1,9 @@
+Background: #121212 (near black)
+
+Primary: #BB86FC (purple glow)
+
+Secondary: #03DAC6 (teal green)
+
+Accent: #FF6D00 (vivid orange)
+
+Text: #E0E0E0 (light gray)
