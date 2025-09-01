@@ -1,6 +1,8 @@
+/* ========== Global ========== */
 * {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
@@ -11,44 +13,43 @@ body {
 }
 
 @keyframes spaceFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
-/*Header Section*/
+
+/* ========== Header ========== */
 .header {
   padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .social {
   display: flex;
   gap: 15px;
   margin-left: 20px;
   align-items: center;
 }
+
 .social a {
-  display: inline-block;
   font-size: 20px;
   color: #03dac6;
   text-decoration: none;
   transition: transform 0.2s, color 0.2s;
 }
+
 .social a:hover {
   transform: scale(1.5);
 }
+
 .reach {
   margin: 0 30px;
   display: flex;
   gap: 30px;
 }
+
 .reach button {
   padding: 10px 40px;
   border: none;
@@ -58,47 +59,42 @@ body {
   text-align: center;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
+
 .reach button:hover {
   transform: scale(1.15);
   opacity: 0.9;
 }
-.email {
-  background: #03dac6;
-  color: #000;
-}
+
+.email,
 .form {
   background: #03dac6;
   color: #000;
 }
-/* 📱 Mobile View */
+
+/* 📱 Mobile Header */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
     gap: 15px;
-    justify-content: center;
     padding: 15px;
   }
-
   .social {
     margin-left: 0;
     justify-content: center;
     gap: 12px;
   }
-
   .reach {
     flex-direction: column;
     align-items: center;
     gap: 12px;
     width: 100%;
   }
-
   .reach button {
-    width: 90%;   /* full width buttons */
-
+    width: 90%;
   }
 }
 
-/* Intro Section */
+/* ========== Intro ========== */
 .intro {
   display: flex;
   align-items: center;
@@ -124,7 +120,7 @@ body {
 
 .intro-left h3 {
   font-size: 22px;
-  height: 30px; /* prevents layout shift while scrolling text */
+  height: 30px;
   color: #03dac6;
 }
 
@@ -140,28 +136,26 @@ body {
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid #03dac6;
-  box-shadow: 0px 0px 20px rgba(3, 218, 198, 0.6);
+  box-shadow: 0 0 20px rgba(3, 218, 198, 0.6);
 }
 
-/* 📱 Mobile */
+/* 📱 Mobile Intro */
 @media (max-width: 768px) {
   .intro {
     flex-direction: column;
     text-align: center;
     padding: 30px 20px;
   }
-
   .intro-right {
     margin-top: 20px;
   }
-
   .intro-right img {
     width: 200px;
     height: 200px;
   }
 }
 
-/* Journey Section */
+/* ========== Journey ========== */
 .journey {
   display: flex;
   align-items: flex-start;
@@ -170,44 +164,41 @@ body {
   gap: 40px;
   color: white;
 }
-
-/* Left Scrolling Images */
 .journey-left {
-  flex: 1;
-  max-height: 400px;
-  overflow-y: auto;
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 350px;
+  overflow: hidden;
   border-radius: 12px;
   border: 2px solid rgba(3, 218, 198, 0.5);
-  box-shadow: 0px 0px 15px rgba(3, 218, 198, 0.4);
-  scrollbar-width: thin;
-  scrollbar-color: #03dac6 #121212;
-}
-.journey-left::-webkit-scrollbar {
-  width: 6px;
-}
-.journey-left::-webkit-scrollbar-thumb {
-  background: #03dac6;
-  border-radius: 10px;
-}
-.journey-left img {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  transition: transform 0.3s;
-}
-.journey-left img:hover {
-  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(3, 218, 198, 0.4);
 }
 
-/* Right Timeline */
+.image-scroll {
+  display: flex;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+}
+
+.image-scroll img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 12px;
+}
+
 .journey-right {
   flex: 1;
 }
+
 .journey-right h2 {
   font-size: 35px;
   margin-bottom: 20px;
   color: #03dac6;
 }
+
 .timeline {
   list-style: none;
   padding: 0;
@@ -215,11 +206,13 @@ body {
   border-left: 3px solid #03dac6;
   position: relative;
 }
+
 .timeline li {
   position: relative;
   padding-left: 25px;
   margin-bottom: 30px;
 }
+
 .timeline .circle {
   position: absolute;
   top: 0;
@@ -231,30 +224,25 @@ body {
   border: 3px solid #121212;
   box-shadow: 0 0 10px #03dac6;
 }
-.timeline li.completed .circle {
-  background: #03dac6;
-}
+
 .timeline li.active .circle {
-  background: #ff9800; /* Highlight active step */
+  background: #ff9800;
   box-shadow: 0 0 15px #ff9800;
 }
+
 .timeline p {
   margin: 0;
   font-size: 16px;
   line-height: 1.5;
 }
 
-/* 📱 Mobile */
+/* 📱 Mobile Journey */
 @media (max-width: 768px) {
-  .journey {
-    flex-direction: column;
-  }
-  .journey-left {
-    max-height: 250px;
-  }
+  .journey { flex-direction: column; }
+  .journey-left { max-height: 250px; }
 }
 
-/* 🌌 Skills Section */
+/* ========== Skills ========== */
 .skills {
   text-align: center;
   padding: 80px 20px;
@@ -301,18 +289,13 @@ body {
   background: rgba(255, 255, 255, 0.08);
 }
 
-/* 📱 Mobile Responsive */
+/* 📱 Mobile Skills */
 @media (max-width: 768px) {
-  .skills h2 {
-    font-size: 2rem;
-  }
-
-  .skill-card {
-    padding: 20px;
-  }
+  .skills h2 { font-size: 2rem; }
+  .skill-card { padding: 20px; }
 }
 
-/* 🚀 Projects Section */
+/* ========== Projects ========== */
 .projects {
   padding: 80px 20px;
   text-align: center;
@@ -385,36 +368,25 @@ body {
   box-shadow: 0 0 15px #03dac6;
 }
 
-/* Hover Effect */
 .project-card:hover {
   transform: scale(1.05);
   box-shadow: 0 0 25px #03dac6;
 }
 
-/* 📱 Mobile Responsive */
+/* 📱 Mobile Projects */
 @media (max-width: 768px) {
-  .projects h2 {
-    font-size: 2rem;
-  }
-
-  .project-content h3 {
-    font-size: 1.3rem;
-  }
-
-  .project-content p {
-    font-size: 0.95rem;
-  }
+  .projects h2 { font-size: 2rem; }
+  .project-content h3 { font-size: 1.3rem; }
+  .project-content p { font-size: 0.95rem; }
 }
 
-/* 🌌 Footer Styling */
+/* ========== Footer ========== */
 .footer {
- /* semi-transparent cosmic overlay */
   color: #fff;
   padding: 50px 20px 20px;
-  backdrop-filter: blur(6px); /* glassmorphism effect */
+  backdrop-filter: blur(6px);
 }
 
-/* 📦 Container */
 .footer-container {
   display: flex;
   flex-wrap: wrap;
@@ -425,7 +397,6 @@ body {
   align-items: flex-start;
 }
 
-/* 👤 About Section */
 .footer-about h2 {
   margin: 0;
   font-size: 24px;
@@ -440,7 +411,6 @@ body {
   line-height: 1.6;
 }
 
-/* 📞 Call Button */
 .call-btn {
   display: inline-block;
   margin-top: 15px;
@@ -451,8 +421,8 @@ body {
   font-size: 15px;
   text-decoration: none;
   border-radius: 30px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
   box-shadow: 0 4px 12px rgba(3, 218, 198, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .call-btn:hover {
@@ -461,7 +431,6 @@ body {
   background: linear-gradient(135deg, #00e6c3, #03dac6);
 }
 
-/* 🌐 Social Icons */
 .footer-social h3 {
   margin-bottom: 12px;
   font-size: 18px;
@@ -482,7 +451,6 @@ body {
   text-shadow: 0 0 8px #03dac6;
 }
 
-/* ⬇ Bottom Strip */
 .footer-bottom {
   text-align: center;
   margin-top: 40px;
@@ -493,28 +461,24 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* 📱 Responsive */
+/* 📱 Mobile Footer */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
     text-align: center;
     gap: 30px;
   }
-
   .footer-social {
     margin-top: 10px;
-    text-align: center;   /* ✅ Ensures icons center in mobile */
-    width: 100%;          /* ✅ Take full width for centering */
+    text-align: center;
+    width: 100%;
   }
-
   .footer-social a {
     margin: 0 12px;
-    display: inline-block; /* ✅ Prevents uneven spacing */
+    display: inline-block;
   }
-
   .call-btn {
     width: 80%;
     max-width: 260px;
   }
 }
-

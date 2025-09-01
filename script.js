@@ -1,32 +1,35 @@
-    fetch("popup.html")
-      .then((response) => response.text())
-      .then((data) => {
-        document.getElementById("popup-container").innerHTML = data;
-      });
+// Load popup.html dynamically
+fetch("popup.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("popup-container").innerHTML = data;
+  });
 
-      const roles = [
-      "Enterpreneur",
-   "Web Developer",
+// --------------------
+// Typing Effect
+// --------------------
+const roles = [
+  "Entrepreneur",
+  "Web Developer",
   "Digital Marketing Manager",
   "Operations Specialist",
   "QA Engineer"
 ];
 
-let index = 0;
-let charIndex = 0;
-let currentRole = "";
+let roleIndex = 0;      // which role
+let charIndex = 0;      // which character
 let isDeleting = false;
 const roleElement = document.querySelector(".role");
 
 function typeEffect() {
-  if (index >= roles.length) index = 0;
-  currentRole = roles[index];
+  if (roleIndex >= roles.length) roleIndex = 0;
+  const currentRole = roles[roleIndex];
 
   if (isDeleting) {
     roleElement.textContent = currentRole.substring(0, charIndex--);
     if (charIndex < 0) {
       isDeleting = false;
-      index++;
+      roleIndex++;
     }
   } else {
     roleElement.textContent = currentRole.substring(0, charIndex++);
@@ -41,3 +44,21 @@ function typeEffect() {
 }
 
 typeEffect();
+
+// --------------------
+// Autoplay Image Slider
+// --------------------
+const scrollContainer = document.querySelector(".image-scroll");
+const images = document.querySelectorAll(".image-scroll img");
+
+let slideIndex = 0;
+
+function showSlide(i) {
+  slideIndex = (i + images.length) % images.length;
+  scrollContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
+}
+
+// autoplay every 3 seconds
+setInterval(() => {
+  showSlide(slideIndex + 1);
+}, 3000);
